@@ -14,11 +14,11 @@
     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 45]) ?>
     <?= $form->field($model, 'apellido')->textInput(['maxlength' => 45]) ?>
     <?php echo $form->field($model,'fecha_nacimiento')->
-    widget(DatePicker::className(),[
-    'dateFormat' => 'yyyy-MM-dd',
-    'clientOptions' => [
-    'yearRange' => '-115:+0',
-    'changeYear' => true]
+        widget(DatePicker::className(),[
+        'dateFormat' => 'yyyy-MM-dd',
+        'clientOptions' => [
+        'yearRange' => '-115:+0',
+        'changeYear' => true]
     ]) ?>
     <?= $form->field($model, 'genero_id')->dropDownList($model->generoLista,
     ['prompt' => 'Por favor Seleccione Uno' ]);?>

@@ -64,6 +64,8 @@ class PostsController extends Controller
     public function actionCreate()
     {
         $model = new Posts();
+        $model->publish_up = date('Y-m-d');
+        $model->user_id = Yii::$app->user->identity->id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

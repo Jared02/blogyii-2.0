@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use common\models\User;
 
 /**
  * This is the model class for table "posts".
@@ -49,7 +50,6 @@ class Posts extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_by' => 'User By',
             'title' => 'Title',
             'excerpt' => 'Excerpt',
             'body' => 'Body',
@@ -61,5 +61,9 @@ class Posts extends \yii\db\ActiveRecord
             'publish_down' => 'Publish Down',
             'blog_categories' => 'Blog Categories',
         ];
+    }
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }

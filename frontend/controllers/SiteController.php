@@ -14,6 +14,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Posts;
+use common\models\User;
 use yii\data\Pagination;
 
 /**
@@ -74,12 +75,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $query = Posts::find()->orderBy('id ASC');
+        $query = Posts::find()->where('status = 1')->orderBy('id ASC');
 
         $countQuery = clone $query;
         $pages = new Pagination([
             'totalCount' => $countQuery->count(),
-            'defaultPageSize' => 1
+            'defaultPageSize' => 3
             ]);
 
         $models = $query
